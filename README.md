@@ -1,73 +1,149 @@
-# Welcome to your Lovable project
+![E Smart Campus Portal](https://img.shields.io/badge/E%20Smart%20Campus-Student%20Management%20System-blue?style=for-the-badge)
 
-## Project info
+# E Smart Campus Portal 🏫✨
 
-**URL**: https://lovable.dev/projects/edcc9c27-8ed3-4539-87e7-e32087d9a7c6
+> A modern student management ERP portal — login, signup, academic resources, placement support, AI assistant and more. Built with React + TypeScript, styled with Tailwind CSS and deployed to Netlify.
 
-## How can I edit this code?
+Live demo: https://student-management-system-v1.netlify.app/ 🔗
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🚀 Project Overview
 
-Simply visit the [Lovable Project][(https://student-management-system-v1.netlify.app/)] and start prompting.
+E Smart Campus Portal is a clean, responsive student ERP designed to help students access academic resources, manage profiles, explore courses, connect with the community, and interact with an AI helper. The landing page welcomes users with a bold title, clear call-to-actions for Login & Signup, and fast navigation to core features.
 
-Changes made via Lovable will be committed automatically to this repo.
+Key pages included:
+- Home / Landing (E Smart Campus Portal)
+- Auth (Login & Signup)
+- Profile
+- Academic Resources
+- Courses
+- Placement
+- Skill Training
+- Community
+- AI Interface
 
-**Use your preferred IDE**
+## ✨ Highlights & Features
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Beautiful, responsive UI with Tailwind CSS
+- Authentication (signup/login flow — Supabase integration available in `src/integrations/supabase`)
+- Structured pages for academic resources, placement info, and student profiles
+- Component-driven architecture with small reusable UI primitives
+- Deployed live on Netlify (link above)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🧰 Tech Stack
 
-Follow these steps:
+- React 18 + TypeScript
+- Vite (dev server + build)
+- Tailwind CSS for styling
+- Radix UI primitives & shadcn-style components
+- Supabase for auth and DB (optional)
+- React Query for data fetching/caching
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+From the repository files, your `package.json` shows these helpful scripts:
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+```zsh
+npm run dev    # start dev server (vite)
+npm run build  # production build
+npm run preview# preview the production build
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+If you prefer pnpm or bun, this repo has a `bun.lockb` so Bun/pnpm are also options.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+## 🛠️ How I made it (developer notes)
+
+1. Project scaffold
+	- Started with Vite + React + TypeScript for a fast dev environment.
+2. Component & UI system
+	- UI primitives live in `src/components/ui/`. I used Radix + Tailwind to make accessible building blocks.
+3. Routing & pages
+	- Pages are under `src/pages/` and use `react-router-dom` for navigation.
+4. Auth & backend
+	- `src/integrations/supabase/` contains the Supabase client setup for auth and simple DB queries.
+5. State management and data fetching
+	- `@tanstack/react-query` (React Query) for server state and caching.
+6. Accessibility & polish
+	- Radix primitives and aria attributes for accessible, keyboard-friendly components.
+
+## ✅ How to run locally
+
+Prerequisites: Node 18+ (or Bun), Git.
+
+Clone and install:
+
+```zsh
+git clone <YOUR_REPO_URL>
+cd <YOUR_PROJECT_FOLDER>
+
+# with npm
+npm install
+
+# or with pnpm
+pnpm install
+
+# or with bun
+bun install
+```
+
+Create environment variables for Supabase (optional):
+
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_anon_key
+```
+
+Start dev server:
+
+```zsh
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Open the URL the dev server prints (usually http://localhost:5173).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📦 Build & Deploy
 
-**Use GitHub Codespaces**
+Production build:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```zsh
+npm run build
+```
 
-## What technologies are used for this project?
+Preview build locally:
 
-This project is built with:
+```zsh
+npm run preview
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Deploy on Netlify/Vercel:
+- Connect your GitHub repo and set the build command to `npm run build` and publish directory to `dist`.
 
-## How can I deploy this project?
+## 🎯 How to use the portal (user flows)
 
-Simply open [Lovable](https://lovable.dev/projects/edcc9c27-8ed3-4539-87e7-e32087d9a7c6) and click on Share -> Publish.
+1. Visit the landing page and choose Login or Signup.
+2. Signup creates a new student account (or login with existing credentials).
+3. After login, access your Profile to update personal info.
+4. Browse Academic Resources, Courses, or Skill Training to learn and practice.
+5. Check Placement for announcements.
+6. Use AI Interface for quick assistance (if enabled).
 
-## Can I connect a custom domain to my Lovable project?
+## 🧩 Project structure (quick)
 
-Yes, you can!
+- `src/pages/` — top-level pages
+- `src/components/` — UI building blocks and shared components
+- `src/integrations/supabase/` — supabase client + types
+- `src/hooks/` — custom hooks (auth, toasts, mobile helpers)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🤝 Contributing
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Suggestions and PRs welcome! Please:
+- Open an issue first for large features
+- Follow the existing component & styling patterns
+- Keep changes small and focused
+
+## 📬 Contact & Credits
+
+If you'd like feedback or help, open an issue or reach out via the repository. Thanks for building E Smart Campus Portal — it's a fantastic foundation for a student ERP. ❤️
+
+---
+
+Made with ❤️ & coffee ☕ — happy coding! 🚀
