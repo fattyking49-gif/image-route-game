@@ -5,7 +5,7 @@
 > A modern student management ERP portal — login, signup, academic resources, placement support, AI assistant and more. Built with React + TypeScript, styled with Tailwind CSS and deployed to Netlify.
 
 Live demo: https://student-management-system-v1.netlify.app/ 🔗
-
+---
 ---
 
 ## 🚀 Project Overview
