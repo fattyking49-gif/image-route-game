@@ -1,9 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, User, BookOpen, Users } from "lucide-react";
+import { Home, User, BookOpen, Users, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/hooks/useAuth";
+import { Button } from "@/components/ui/button";
 
 const Navigation = () => {
   const location = useLocation();
+  const { signOut, user } = useAuth();
 
   const navItems = [
     { name: "Home", path: "/", icon: Home },
@@ -15,7 +18,8 @@ const Navigation = () => {
   return (
     <nav className="border-b border-border bg-card">
       <div className="container mx-auto px-4">
-        <div className="flex items-center gap-8 py-4">
+        <div className="flex items-center justify-between py-4">
+          <div className="flex items-center gap-8">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = location.pathname === item.path;
@@ -34,6 +38,24 @@ const Navigation = () => {
               </Link>
             );
           })}
+          </div>
+          
+          {user && (
+            <div className="flex items-center gap-4">
+              <span className="text-sm text-muted-foreground">
+                {user.email}
+              </span>
+              <Button
+                onClick={signOut}
+                variant="outline"
+                size="sm"
+                className="flex items-center gap-2"
+              >
+                <LogOut className="h-4 w-4" />
+                Logout
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </nav>

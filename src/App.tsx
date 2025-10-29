@@ -14,6 +14,9 @@ import Placement from "./pages/Placement";
 import Profile from "./pages/Profile";
 import Courses from "./pages/Courses";
 import Community from "./pages/Community";
+import Auth from "./pages/Auth";
+import { AuthProvider } from "./hooks/useAuth";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
 
@@ -23,20 +26,23 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/student-information" element={<StudentInformation />} />
-          <Route path="/college-overview" element={<CollegeOverview />} />
-          <Route path="/ai-interface" element={<AIInterface />} />
-          <Route path="/skill-training" element={<SkillTraining />} />
-          <Route path="/academic-resources" element={<AcademicResources />} />
-          <Route path="/placement" element={<Placement />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/community" element={<Community />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AuthProvider>
+          <Routes>
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/" element={<ProtectedRoute><Index /></ProtectedRoute>} />
+            <Route path="/student-information" element={<ProtectedRoute><StudentInformation /></ProtectedRoute>} />
+            <Route path="/college-overview" element={<ProtectedRoute><CollegeOverview /></ProtectedRoute>} />
+            <Route path="/ai-interface" element={<ProtectedRoute><AIInterface /></ProtectedRoute>} />
+            <Route path="/skill-training" element={<ProtectedRoute><SkillTraining /></ProtectedRoute>} />
+            <Route path="/academic-resources" element={<ProtectedRoute><AcademicResources /></ProtectedRoute>} />
+            <Route path="/placement" element={<ProtectedRoute><Placement /></ProtectedRoute>} />
+            <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+            <Route path="/courses" element={<ProtectedRoute><Courses /></ProtectedRoute>} />
+            <Route path="/community" element={<ProtectedRoute><Community /></ProtectedRoute>} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
