@@ -10,7 +10,7 @@ There are several ways of editing your application.
 
 **Use Lovable**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/edcc9c27-8ed3-4539-87e7-e32087d9a7c6) and start prompting.
+Simply visit the [Lovable Project][(https://student-management-system-v1.netlify.app/)] and start prompting.
 
 Changes made via Lovable will be committed automatically to this repo.
 
